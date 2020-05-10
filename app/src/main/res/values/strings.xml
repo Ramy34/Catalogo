@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Catalogo</string>
+    <string name="urlCatalogo" translatable="false">https://www.serverbpw.com/cm/2020-2/products.php</string>
 </resources>
