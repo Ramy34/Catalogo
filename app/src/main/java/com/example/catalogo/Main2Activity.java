@@ -1,7 +1,9 @@
 package com.example.catalogo;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,13 +17,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.catalogo.producto.Producto;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,6 +73,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onResponse(String response) {
         pbConec.setVisibility(View.GONE);
@@ -79,12 +82,16 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
             String nombre = jsonObject.getString(getResources().getString(R.string.name));
             String imag_url = jsonObject.getString(getResources().getString(R.string.imag_url));
             String descripcion = jsonObject.getString(getResources().getString(R.string.desc));
-            tvName.setText(nombre);
-            tvDescip.setText(descripcion);
+            String newNom = new String(nombre.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            String newDesc = new String(descripcion.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+
+            tvName.setText(newNom);
+            tvDescip.setText(newDesc);
             Picasso.with(this)
                     .load(imag_url)
                     .into(imArti);
         }catch(JSONException e) {
+            Toast.makeText(this,"Error", Toast.LENGTH_SHORT).show();
 
         }
 
