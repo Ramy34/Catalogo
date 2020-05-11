@@ -2,9 +2,11 @@ package com.example.catalogo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
@@ -72,6 +74,16 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
             }
             Adaptador adaptador = new Adaptador(this, productos);
             lv.setAdapter(adaptador);
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                    intent.putExtra(getResources().getString(R.string.id), id);
+                    startActivity(intent);
+                }
+            });
+
         }catch (JSONException e){
 
         }

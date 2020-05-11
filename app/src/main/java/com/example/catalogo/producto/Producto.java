@@ -1,9 +1,9 @@
 package com.example.catalogo.producto;
 
 public class Producto {
-    int id;
-    double price, delivery;
-    String name, thumbnail_url, provider;
+    private int id;
+    private double price, delivery;
+    private String name, thumbnail_url, provider;
 
     public Producto(int id, String name, String thumbnail_url, double price, String provider, double delivery){
         this.id = id;

@@ -3,7 +3,7 @@
     <string name="app_name">Catalogue</string>
     <string name="descripcion">Content Description</string>
     <string name="nombre">Name</string>
-    <string name="precio">Price: %s</string>
-    <string name="envio">Delivery: %s</string>
+    <string name="precio">Price: %.02f</string>
+    <string name="envio">Delivery: %.02f</string>
     <string name="proveedor">Provider</string>
 </resources>
