@@ -6,4 +6,5 @@
     <string name="precio">Price: %.02f</string>
     <string name="envio">Delivery: %.02f</string>
     <string name="proveedor">Provider</string>
+    <string name="error">Error: could not access the server</string>
 </resources>

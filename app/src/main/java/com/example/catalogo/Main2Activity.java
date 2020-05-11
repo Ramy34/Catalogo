@@ -3,8 +3,11 @@ package com.example.catalogo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,6 +29,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
 
     ImageView imArti;
     TextView tvDescip, tvName;
+    ProgressBar pbConec;
 
     String url;
     RequestQueue queue;
@@ -44,6 +48,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
         imArti = findViewById(R.id.imArti);
         tvDescip = findViewById(R.id.tvDescripcion);
         tvName = findViewById(R.id.tvName);
+        pbConec = findViewById(R.id.pbConec);
 
         queue = Volley.newRequestQueue(this);
         url = getResources().getString(R.string.urlDescrip) + id;
@@ -60,11 +65,15 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        pbConec.setVisibility(View.GONE);
+        Toast.makeText(Main2Activity.this, getResources().getString(R.string.error), Toast.LENGTH_LONG).show();
+        finish();
 
     }
 
     @Override
     public void onResponse(String response) {
+        pbConec.setVisibility(View.GONE);
         try {
             JSONObject jsonObject = new JSONObject(response);
             String nombre = jsonObject.getString(getResources().getString(R.string.name));

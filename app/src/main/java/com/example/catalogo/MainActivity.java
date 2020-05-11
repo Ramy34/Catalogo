@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONArray>{
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
     @Override
     public void onErrorResponse(VolleyError error) {
         pbConexion.setVisibility(View.GONE);
-        finish();
+        Toast.makeText(MainActivity.this, getResources().getString(R.string.error), Toast.LENGTH_LONG).show();
     }
 
     @Override

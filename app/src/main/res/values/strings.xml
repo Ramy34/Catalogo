@@ -15,4 +15,5 @@
     <string name="urlDescrip" translatable="false">https://www.serverbpw.com/cm/2020-2/product_detail.php?id=</string>
     <string name="imag_url" translatable="false">imag_url</string>
     <string name="desc" translatable="false">desc</string>
+    <string name="error">Error: no se pudo acceder al servidor</string>
 </resources>
