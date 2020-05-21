@@ -2,6 +2,7 @@ package com.example.catalogo;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
     ImageView imArti;
     TextView tvDescip, tvName;
     ProgressBar pbConec;
+    Toolbar barra;
 
     String url;
     RequestQueue queue;
@@ -51,6 +53,10 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
         tvDescip = findViewById(R.id.tvDescripcion);
         tvName = findViewById(R.id.tvName);
         pbConec = findViewById(R.id.pbConec);
+        barra = findViewById(R.id.barra);
+
+        setSupportActionBar(barra);
+
 
         queue = Volley.newRequestQueue(this);
         url = getResources().getString(R.string.urlDescrip) + id;

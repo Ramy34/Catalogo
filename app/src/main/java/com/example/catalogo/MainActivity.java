@@ -1,10 +1,15 @@
 package com.example.catalogo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,13 +28,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONArray>{
 
     ListView lv;
     ProgressBar pbConexion;
+    Toolbar barra;
 
     String url;
     RequestQueue queue;
@@ -43,12 +48,38 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
 
         lv = findViewById(R.id.lv);
         pbConexion = findViewById(R.id.pbConexion);
+        barra = findViewById(R.id.barra);
+
+        setSupportActionBar(barra);
 
         productos = new ArrayList<Producto>();
         queue = Volley.newRequestQueue(this);
         url = getResources().getString(R.string.urlCatalogo);
         request = new JsonArrayRequest(Request.Method.GET, url, null, this, this);
         queue.add(request);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_actions, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.app_bar_search);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    private void mostrarDialogo() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.info)
+                .setMessage(R.string.mensaje)
+                .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
     }
 
     @Override

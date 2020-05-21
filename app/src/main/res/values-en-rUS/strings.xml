@@ -7,4 +7,7 @@
     <string name="envio">Delivery: %.02f</string>
     <string name="proveedor">Provider</string>
     <string name="error">Error: could not access the server</string>
+    <string name="buscar">Search</string>
+    <string name="info">Information</string>
+    <string name="mensaje">This application was developed by: Castro Molano Ramsés</string>
 </resources>

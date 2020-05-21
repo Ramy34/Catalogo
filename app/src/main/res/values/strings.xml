@@ -16,4 +16,8 @@
     <string name="imag_url" translatable="false">imag_url</string>
     <string name="desc" translatable="false">desc</string>
     <string name="error">Error: no se pudo acceder al servidor</string>
+    <string name="buscar">Buscar</string>
+    <string name="info">Información</string>
+    <string name="mensaje">Esta aplicación fue desarrollada por: Castro Molano Ramsés</string>
+    <string name="ok" translatable="false">Ok</string>
 </resources>
