@@ -1,5 +1,6 @@
 package com.example.catalogo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -62,12 +63,16 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_actions, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.app_bar_search);
-
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.info){
+            mostrarDialogo();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void mostrarDialogo() {
         new AlertDialog.Builder(this)
