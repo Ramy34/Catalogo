@@ -59,6 +59,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
         setSupportActionBar(barra);
 
         ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
 
 

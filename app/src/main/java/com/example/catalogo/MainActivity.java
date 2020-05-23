@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle(R.string.tienda);
         lv = findViewById(R.id.lv);
         pbConexion = findViewById(R.id.pbConexion);
         barra = findViewById(R.id.barra);
