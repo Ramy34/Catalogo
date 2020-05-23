@@ -24,4 +24,5 @@
     <string name="tienda">Tienda Variada :3</string>
     <string name="url_img" translatable="false">url_img</string>
     <string name="imagen">Imagen</string>
+    <string name="posicion" translatable="false">posicion</string>
 </resources>

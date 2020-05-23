@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
     ListView lv;
     ProgressBar pbConexion;
     Toolbar barra;
+    MediaPlayer mp;
 
     int id;
     String name;
@@ -61,11 +63,36 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         barra = findViewById(R.id.barra);
         setSupportActionBar(barra);
 
+        mp = MediaPlayer.create(this, R.raw.fondo);
+        mp.setLooping(true);
+        mp.start();
+
         productos = new ArrayList<Producto>();
         queue = Volley.newRequestQueue(this);
         url = getResources().getString(R.string.urlCatalogo);
         request = new JsonArrayRequest(Request.Method.GET, url, null, this, this);
         queue.add(request);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mp.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mp.isPlaying()){
+            mp.stop();
+            mp.release();
+        }
     }
 
     @Override
@@ -127,7 +154,9 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                     intent.putExtra(getResources().getString(R.string.id), id);
+                    intent.putExtra(getResources().getString(R.string.posicion), mp.getCurrentPosition());
                     startActivity(intent);
+                    mp.pause();
                 }
             });
 
