@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
     ProgressBar pbConexion;
     Toolbar barra;
 
+    int id;
+    String name;
+    String thumbnail_url;
+    double price;
+    String provider;
+    double delivery;
+
     String url;
     RequestQueue queue;
     JsonArrayRequest request;
@@ -103,12 +110,12 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         try {
             for(int i=0; i < response.length(); i++){
                 jsonObject = response.getJSONObject(i);
-                int id = jsonObject.getInt(getResources().getString(R.string.id));
-                String name = jsonObject.getString(getResources().getString(R.string.name));
-                String thumbnail_url = jsonObject.getString(getResources().getString(R.string.thumbnail_url));
-                double price = jsonObject.getDouble(getResources().getString(R.string.price));
-                String provider = jsonObject.getString(getResources().getString(R.string.provider));
-                double delivery = jsonObject.getDouble(getResources().getString(R.string.delivery));
+                id = jsonObject.getInt(getResources().getString(R.string.id));
+                name = jsonObject.getString(getResources().getString(R.string.name));
+                thumbnail_url = jsonObject.getString(getResources().getString(R.string.thumbnail_url));
+                price = jsonObject.getDouble(getResources().getString(R.string.price));
+                provider = jsonObject.getString(getResources().getString(R.string.provider));
+                delivery = jsonObject.getDouble(getResources().getString(R.string.delivery));
                 Producto producto = new Producto(id, name, thumbnail_url, price, provider, delivery);
                 productos.add(producto);
             }

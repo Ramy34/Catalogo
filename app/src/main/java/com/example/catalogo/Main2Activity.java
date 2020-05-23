@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,7 +26,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,12 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
     TextView tvDescip;
     ProgressBar pbConec;
     Toolbar barra;
+
+    String nombre;
+    String imag_url;
+    String descripcion;
+    String newNom;
+    String newDesc;
 
     String url;
     RequestQueue queue;
@@ -73,7 +80,6 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
             }
         };
         queue.add(request);
-
     }
 
     @Override
@@ -90,11 +96,11 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
         pbConec.setVisibility(View.GONE);
         try {
             JSONObject jsonObject = new JSONObject(response);
-            String nombre = jsonObject.getString(getResources().getString(R.string.name));
-            String imag_url = jsonObject.getString(getResources().getString(R.string.imag_url));
-            String descripcion = jsonObject.getString(getResources().getString(R.string.desc));
-            String newNom = new String(nombre.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-            String newDesc = new String(descripcion.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            nombre = jsonObject.getString(getResources().getString(R.string.name));
+            imag_url = jsonObject.getString(getResources().getString(R.string.imag_url));
+            descripcion = jsonObject.getString(getResources().getString(R.string.desc));
+            newNom = new String(nombre.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            newDesc = new String(descripcion.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
             setTitle(newNom);
             tvDescip.setText(newDesc);

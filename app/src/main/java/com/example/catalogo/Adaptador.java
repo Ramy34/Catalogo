@@ -1,6 +1,7 @@
 package com.example.catalogo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,15 @@ public class Adaptador extends BaseAdapter {
         Picasso.with(contexto)
                 .load(productos.get(position).getThumbnail_url())
                 .into(iv);
+
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(contexto, Main3Activity.class);
+                intent.putExtra(contexto.getResources().getString(R.string.url_img), productos.get(position).getThumbnail_url());
+                contexto.startActivity(intent);
+            }
+        });
 
         return vista;
     }
