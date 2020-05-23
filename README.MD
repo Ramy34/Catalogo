@@ -49,4 +49,6 @@ Se debe implementar una clase Producto con las propiedades que consideren para u
 Pueden definir todos los elementos gráficos que deseen para hacer más llamativa la interfaz.
 
 ## Extras
-Se agrega un Action Button que se muestra quien desarrollo la App
+Se agrega un Action Button que se muestra quien desarrollo la App.
+Se agrega la opción de regreso al listado.
+Se muestra en el Action Bar de la Activity del desglose del producto el nombre del mismo.

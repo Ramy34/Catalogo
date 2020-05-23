@@ -20,4 +20,5 @@
     <string name="info">Información</string>
     <string name="mensaje">Esta aplicación fue desarrollada por: Castro Molano Ramsés</string>
     <string name="ok" translatable="false">Ok</string>
+    <string name="producto">Producto</string>
 </resources>

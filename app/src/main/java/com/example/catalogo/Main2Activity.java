@@ -1,6 +1,7 @@
 package com.example.catalogo;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -31,7 +32,7 @@ import java.util.Map;
 public class Main2Activity extends AppCompatActivity implements Response.ErrorListener, Response.Listener<String>{
 
     ImageView imArti;
-    TextView tvDescip, tvName;
+    TextView tvDescip;
     ProgressBar pbConec;
     Toolbar barra;
 
@@ -47,15 +48,18 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
 
+        assert bundle != null;
         final long id = bundle.getLong(getResources().getString(R.string.id));
 
         imArti = findViewById(R.id.imArti);
         tvDescip = findViewById(R.id.tvDescripcion);
-        tvName = findViewById(R.id.tvName);
         pbConec = findViewById(R.id.pbConec);
         barra = findViewById(R.id.barra);
 
         setSupportActionBar(barra);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
 
         queue = Volley.newRequestQueue(this);
@@ -91,7 +95,7 @@ public class Main2Activity extends AppCompatActivity implements Response.ErrorLi
             String newNom = new String(nombre.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
             String newDesc = new String(descripcion.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
-            tvName.setText(newNom);
+            setTitle(newNom);
             tvDescip.setText(newDesc);
             Picasso.with(this)
                     .load(imag_url)

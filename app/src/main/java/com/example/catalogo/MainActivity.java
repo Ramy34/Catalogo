@@ -1,6 +1,7 @@
 package com.example.catalogo;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         lv = findViewById(R.id.lv);
         pbConexion = findViewById(R.id.pbConexion);
         barra = findViewById(R.id.barra);
-
         setSupportActionBar(barra);
 
         productos = new ArrayList<Producto>();
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_actions, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 

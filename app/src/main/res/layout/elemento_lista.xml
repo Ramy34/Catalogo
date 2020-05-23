@@ -77,6 +77,8 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/descripcion"
         android:text="@string/precio"
+        android:textColor="#00BCD4"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre"
