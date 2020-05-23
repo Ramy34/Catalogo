@@ -27,14 +27,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="235dp" />
+        app:layout_constraintGuide_begin="190dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="335dp" />
+        app:layout_constraintGuide_begin="295dp" />
 
     <ImageView
         android:id="@+id/iv"
@@ -66,6 +66,7 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/descripcion"
         android:text="@string/proveedor"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -90,6 +91,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/descripcion"
         android:text="@string/envio"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
