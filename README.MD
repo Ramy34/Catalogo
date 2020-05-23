@@ -52,3 +52,4 @@ Pueden definir todos los elementos gráficos que deseen para hacer más llamativ
 Se agrega un Action Button que se muestra quien desarrollo la App.
 Se agrega la opción de regreso al listado.
 Se muestra en el Action Bar de la Activity del desglose del producto el nombre del mismo.
+Se cambia el icono de la app.

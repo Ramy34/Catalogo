@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Catalogue</string>
+    <string name="app_name">Store</string>
     <string name="descripcion">Content Description</string>
     <string name="nombre">Name</string>
     <string name="precio">Price: %.02f</string>
