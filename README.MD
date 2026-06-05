@@ -1,57 +1,42 @@
-## Ejercicio 3
-Realizar una aplicación que se conecte a un servicio para obtener un catálogo de productos. Los productos se deberán presentar en un listado con un ListView o un contenedor similar.
+# Catálogo de Productos (Android App)
 
-Se debe crear también un prototipo de celda personalizado definido por el programador tomando en cuenta los elementos que devuelve la conexión.
+Aplicación nativa en Android desarrollada en Java que consume un servicio web (API REST) para mostrar un catálogo de productos. La aplicación presenta un listado mediante vistas personalizadas y permite ver el detalle completo de cada artículo, así como interactuar con sus imágenes de forma dinámica.
 
-La conexión para los productos será la siguiente:
+## Características Principales
 
-https://www.serverbpw.com/cm/2020-2/products.php
+* **Listado de Productos:** Muestra un catálogo de productos obtenidos dinámicamente mediante formato JSON.
+* **Vistas Personalizadas:** Utiliza un adaptador personalizado (`Adaptador.java`) para mapear cada elemento de la lista con su imagen, nombre, precio, proveedor y costo de envío.
+* **Carga de Imágenes Asíncrona:** Implementación de la popular librería externa **Picasso** para la carga eficiente en caché de las miniaturas de los productos.
+* **Detalle del Producto:** Al seleccionar un producto del listado, la aplicación consume un segundo servicio web para mostrar la descripción completa del producto en una nueva actividad.
+* **Visualización de Imágenes Dedicada:** Al tocar directamente la miniatura de un producto desde el listado del catálogo, se abre una vista dedicada (`Main3Activity`) para la visualización ampliada de la imagen.
 
-Con dicha conexión se obtendrá un arreglo en formato JSON con los siguientes datos:
+## Características Adicionales (Extras)
 
-id: Identificador del producto
+* **Créditos del Desarrollador:** Se ha agregado un *Action Button* para mostrar la información del desarrollador de la aplicación.
+* **Navegación Intuitiva:** Implementación de la opción de regreso seguro al listado principal.
+* **Títulos Dinámicos:** El *Action Bar* de la actividad de detalles se actualiza automáticamente para reflejar el nombre del producto visualizado.
+* **Personalización Visual e Interactiva:**
+  * Ícono de la aplicación personalizado.
+  * Música de fondo reproduciéndose armónicamente en el menú principal de la aplicación.
 
-name: Nombre del producto
+## Endpoints de la API REST
 
-thumbnail_url: Url para la imagen de vista previa del producto
+La aplicación se conecta a los siguientes servicios web para obtener la información mostrada:
 
-price: Precio del producto
+1. **Catálogo de Productos:**
+   * **URL:** `https://www.serverbpw.com/cm/2020-2/products.php`
+   * **Formato:** Arreglo JSON
+   * **Datos:** `id`, `name`, `thumbnail_url`, `price`, `provider`, `delivery`.
 
-provider: Proveedor del producto
+2. **Detalle del Producto:**
+   * **URL:** `https://www.serverbpw.com/cm/2020-2/product_detail.php?id={ID}`
+   * **Formato:** Objeto JSON
+   * **Datos:** `name`, `imag_url`, `desc`.
 
-delivery: Costo de envío
+## Stack Tecnológico y Dependencias
 
-
-Al dar clic en algún elemento del listado se deberá ir a otra Activity para mostrar la descripción del producto.
-
-La conexión para esta segunda parte será:
-
-https://www.serverbpw.com/cm/2020-2/product_detail.php?id=ID
-
-Donde ID es el identificador de producto:
-
-Ejemplo: https://www.serverbpw.com/cm/2020-2/product_detail.php?id=6541
-
-Con dicha conexión se obtendrá una respuesta en formato JSON con los siguientes datos:
-
-name: Nombre del producto
-
-imag_url: Url para la imagen del producto
-
-desc: Descripción del producto
-
-Como se ha manejado previamente, ustedes deben definir su interfaz y su prototipo de celda para el listado.
-
-Consideraciones adicionales:
-
-Se debe implementar una clase Producto con las propiedades que consideren para usarse en la aplicación.
-
-Pueden definir todos los elementos gráficos que deseen para hacer más llamativa la interfaz.
-
-## Extras
-Se agrega un Action Button que se muestra quien desarrollo la App.  
-Se agrega la opción de regreso al listado.  
-Se muestra en el Action Bar de la Activity del desglose del producto el nombre del mismo.  
-Se cambia el icono de la app.  
-Se puede ver la imagen de algún producto al presionar en ella en el menú del catálogo.  
-Se agrega música de fondo al menú principal.  
+* **Lenguaje:** Java
+* **Framework:** Android SDK
+* **Componentes UI:** ListView / BaseAdapter (para el manejo de colecciones)
+* **Librerías Externas:**
+  * Picasso - *Para la descarga y renderizado de imágenes remoto.*
